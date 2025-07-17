@@ -1,7 +1,7 @@
-Bootstrap: yum
-OSVersion: 7
-MirrorURL: http://mirror.centos.org/centos-%{{OSVERSION}}/%{{OSVERSION}}/os/$basearch/
-Include: yum
+Bootstrap: debootstrap
+OSVersion: testing
+MirrorURL: http://ftp.au.debian.org/debian/
+Include: curl tar ca-certificates
 
 %files
   packed_env.tar /packed_env.tar
@@ -10,8 +10,6 @@ Include: yum
   export NUMBA_CACHE_DIR=/tmp/numba_cache
 
 %post
-#   yum install -y kernel-3.10.0-1160.11.1.el7
-  yum install -y tar
   curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh > /install_conda.sh
   chmod +x /install_conda.sh
   /install_conda.sh -b -p /opt/conda
