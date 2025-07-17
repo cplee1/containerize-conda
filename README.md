@@ -38,7 +38,7 @@ For example
 conda_to_singularity.py /home/sturm/.conda/envs/whatever whatever.sif
 ```
 
-By default, the image will be based on CentOS 7. If you want a different base image,
+By default, the image will be based on Debian. If you want a different base image,
 you can modify `Singularity.template`, and specify it with the `--template` argument.
 
 
